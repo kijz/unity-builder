@@ -30,7 +30,7 @@ if ($env:SKIP_ACTIVATION -ne "true") {
   # If we didn't activate successfully, exit with the exit code from the activation step.
   if ($ACTIVATION_EXIT_CODE -ne 0) {
     Write-Error "Unity activation failed after $maxRetries attempts with exit code $ACTIVATION_EXIT_CODE"
-    exit $ACTIVATION_EXIT_CODE
+    exit 1 # exit code 1 is failure on windows
   }
 }
 else {
